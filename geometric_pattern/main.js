@@ -1,4 +1,4 @@
-var NUM_CIRCLES = 12;
+var NUM_CIRCLES = 48;
 var circleDiameter;
 var circleRadius;
 var rVal;
@@ -6,14 +6,16 @@ var gVal;
 var bVal;
 
 function setup() {
-    createCanvas(480,600);
+    createCanvas(1500,700);
+    frameRate(200);
     circleDiameter = width/NUM_CIRCLES;
-    circleRadius = circleDiameter/2
+    circleRadius = circleDiameter/3;
+    rVal = 5;
+    gVal = 5;
+    bVal = 5;
+    
 }
 function draw() {
-    rVal = 200;
-    gVal = 0;
-    bVal = 190;
     
     var isShifted = false;
     
@@ -33,8 +35,26 @@ function draw() {
     }
     y = y - circleRadius;
     isShifted = !isShifted;
-    rVal = rVal -4;
-    gVal = gVal + 8;
-    bVal = bVal + 8;
+    rVal = (rVal + 200) % 256;
+    gVal = (gVal + 200) % 256;
+    bVal = (bVal + 200) % 256;
+
+    
+    }
+}
+
+// function keyPressed() {
+//     if (keyCode === 115 || keycode === 83) {
+//         saveCanvas('geometricPattern','png');
+//     }
+//     return false;
+// }
+
+function keyPressed() {
+    if (keyCode === 32){
+        rVal = random (100);
+        gVal = random (100);
+        bVal = random (100);
+        
     }
 }
