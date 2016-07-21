@@ -1,8 +1,10 @@
 var player;
 var playerImage;
-var enemy;
+
 var enemyImage;
 var isGameOver;
+var enemyArray =[];
+var score = 0;
 
 function preload() {
     playerImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/N5uCbDu.png");
@@ -11,12 +13,10 @@ function preload() {
 }
 function setup() {
     isGameOver = false;
-    createCanvas(256, 256);
+    createCanvas(500, 500);
     player = createSprite(width/2, height-(playerImage.height/2), 0, 0);
     player.addImage(playerImage);
-    enemy = createSprite (width/2, 0, 0, 0);
-    enemy.addImage(enemyImage);
-    enemy.rotationSpeed = 10.0;
+    
 }
 function draw() {
     background(backgroundImage);
@@ -26,20 +26,32 @@ function draw() {
     }else{
    
     if(keyDown(RIGHT_ARROW) && player.position.x < (width-(playerImage.width/2))){
-        player.position.x = player.position.x += 2;
+        player.position.x = player.position.x += 3;
     }
     if(keyDown(LEFT_ARROW) && player.position.x > (playerImage.width/2)){
-        player.position.x = player.position.x -= 2;
+        player.position.x = player.position.x -= 3;
     }
+    for(var i = 0; i<enemyArray.length; i++){
+    enemy= enemyArray[i];
     enemy.position.y = enemy.position.y + 3;
+
     if (enemy.position.y > height) {
         enemy.position.y = 0;
         enemy.position.x = random(5, width-5);
     }
+    if(enemyArray.length> 15){
+        enemyArray.length=0;
+    }
     if (enemy.overlap(player)){
-        isGameOver = true;
-    }}
+        score = score + 1;
+        //console.log(score);
+        removeSprite(enemy);
+    }}}
+    textAlign(CENTER);
+    fill("white");
+    text("Score:" + score, width/2, 30);
     drawSprites();
+    console.log(enemyArray.length);
 }
 
 function gameOver() {
@@ -58,3 +70,20 @@ function mouseClicked () {
     enemy.position.x = width/2;
     enemy.position.y = 0;
 }}
+
+function createEnemy () {
+    enemy = createSprite (Math.floor(Math.random()*500), 0, 0, 0);
+    enemy.addImage(enemyImage);
+    enemy.rotationSpeed = 10.0;
+    return enemy;
+   
+}
+
+setInterval(
+    function() {
+       enemyArray.push(createEnemy());
+    }, 1000)
+
+    
+ 
+    
