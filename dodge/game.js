@@ -7,8 +7,8 @@ var enemyArray =[];
 var score = 0;
 
 function preload() {
-    playerImage = loadImage("http://67.media.tumblr.com/7dd712c0177f51b51e78bb8ef34797a5/tumblr_mwhp5zXOxx1rgpyeqo1_500.png");
-    enemyImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/OdL0XPt.png");
+    playerImage = loadImage("TreasureSack.png");
+    enemyImage = loadImage("CrystalsWhite.png");
     backgroundImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/aKQOg3G.png");
 }
 function setup() {
