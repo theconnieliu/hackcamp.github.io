@@ -1,6 +1,5 @@
 var player;
 var playerImage;
-
 var enemyImage;
 var isGameOver;
 var score = 0;
@@ -15,7 +14,7 @@ function setup() {
     createCanvas(500, 500);
     player = createSprite(width/2, height-(playerImage.height/2), 0, 0);
     player.addImage(playerImage);
-    enemy = createSprite (Math.floor(Math.random()*500), 0, 0, 0);
+    enemy = createSprite(width/2, 0, 10, 30);
     enemy.addImage(enemyImage);
     enemy.rotationSpeed = 10.0;
 }
