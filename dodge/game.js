@@ -7,7 +7,7 @@ var enemyArray =[];
 var score = 0;
 
 function preload() {
-    playerImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/N5uCbDu.png");
+    playerImage = loadImage("http://67.media.tumblr.com/7dd712c0177f51b51e78bb8ef34797a5/tumblr_mwhp5zXOxx1rgpyeqo1_500.png");
     enemyImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/OdL0XPt.png");
     backgroundImage = loadImage("https://surrogate.hackedu.us/i.imgur.com/aKQOg3G.png");
 }
@@ -38,9 +38,6 @@ function draw() {
     if (enemy.position.y > height) {
         enemy.position.y = 0;
         enemy.position.x = random(5, width-5);
-    }
-    if(enemyArray.length> 15){
-        enemyArray.length=0;
     }
     if (enemy.overlap(player)){
         score = score + 1;
