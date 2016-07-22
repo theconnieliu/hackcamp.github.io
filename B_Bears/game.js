@@ -6,13 +6,15 @@ var backgroundImage;
 var isGameOver;
 
 function preload() {
+    playerImage = loadImage("Bear.png");
     enemyImage = loadImage("Bee.png");
     backgroundImage = loadImage("honeycomb.jpg");
 }
 function setup() {
     createCanvas(500, 250);
-    player = createSprite(25, height - 25, 50, 50);
-    enemy = createSprite(width - 10, height - enemyImage/2, 0, 0);
+    player = createSprite(25, height - 25, 0, 0);
+    player.addImage(playerImage);
+    enemy = createSprite(width - 10, height/2, 0, 0);
     enemy.addImage(enemyImage);
     isGameOver = false;
 }
@@ -41,7 +43,8 @@ function draw() {
             enemy.position.y = random(5, width - 10);
         }
 
-        if (enemy.overlap(player)) {
+         if (enemy.overlap(player)) {
+             console.log("Overlap");
             isGameOver = true;
         }
     }
