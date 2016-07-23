@@ -6,13 +6,13 @@ var backgroundImage;
 var isGameOver;
 
 function preload() {
-    playerImage = loadImage("Bear.png");
+    playerImage = loadImage("WingedBear.png");
     enemyImage = loadImage("Bee.png");
     backgroundImage = loadImage("honeycomb.jpg");
 }
 function setup() {
-    createCanvas(1000, 500);
-    player = createSprite(40, height - 40, 0, 0);
+    createCanvas(1500, 800);
+    player = createSprite(90, height - 50, 0, 0);
     player.addImage(playerImage);
     enemy = createSprite(width - 10, height/2, 0, 0);
     enemy.addImage(enemyImage);
@@ -25,16 +25,16 @@ function draw() {
         gameOver();
     }
     else {
-        if (keyDown(RIGHT_ARROW) && player.position.x < (width - 25)) {
+        if (keyDown(RIGHT_ARROW) && player.position.x < (width - 85)) {
             player.position.x = player.position.x + 3;
         }
-        if (keyDown(LEFT_ARROW) && player.position.x > 25) {
+        if (keyDown(LEFT_ARROW) && player.position.x > 85) {
             player.position.x = player.position.x - 3;
         }
         if (keyDown(38) && player.position.y > 50) {
             player.position.y = player.position.y - 8;
         }
-        if (keyDown(40) && player.position.y < height-45) {
+        if (keyDown(40) && player.position.y < height-50) {
             player.position.y = player.position.y + 8;
         }
         enemy.position.x = enemy.position.x - 8;
@@ -56,5 +56,15 @@ function gameOver() {
     textAlign(CENTER);
     fill("white");
     text("Game Over!", width / 2, height / 3);
-    text("That's what you get for having good hair", width/2, height/2)
+    text("You couldn't escape the Bey Hive.", width/2, height/2.5);
+    text("That's what you get for having good hair :P", width/2, height/2);
+    text("Click anywhere to try again, Becky.", width/2, 3*height/4);
+}
+
+function mouseClicked() {
+    isGameOver = false;
+    player.position.x = (90);
+    player.position.y = (height - 50);
+    enemy.position.x = (width - 10);
+    enemy.position.y = (height/2);
 }
