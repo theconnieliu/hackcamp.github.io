@@ -40,7 +40,7 @@ function draw() {
         enemy.position.x = enemy.position.x - 8;
         if (enemy.position.x < 0) {
             enemy.position.x = width - 5;
-            enemy.position.y = random(height - 30);
+            enemy.position.y = random(30, height - 30);
         }
 
          if (enemy.overlap(player)) {
