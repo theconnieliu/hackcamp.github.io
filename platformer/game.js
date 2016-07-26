@@ -6,17 +6,25 @@ var GROUND_SPRITE_HEIGHT = 50;
 var numGroundSprites;
 
 var player;
+var playerImage;
 var obstacleSprites;
+var obstacleSpritesImage;
+
 
 var isGameOver;
 
 var score;
 
+function preload(){
+    playerImage = loadImage("CookieMonster.png");
+    obstacleSpritesImage = loadImage("Cookie.png");
+    
+}
 function setup (){
     isGameOver = false;
     score = 0;
     
-    createCanvas(400, 300);
+    createCanvas(1000, 500);
     background(150, 200, 250);
     groundSprites = new Group();
     
@@ -26,7 +34,9 @@ function setup (){
         groundSprites.add(groundSprite);
     }
     player = createSprite(100, height-75, 50, 50);
+    player.addImage(playerImage);
     obstacleSprites = new Group();
+    //obstacleSprites.addImage(obstacleSpritesImage);
 }
 function draw(){
     if (isGameOver){
