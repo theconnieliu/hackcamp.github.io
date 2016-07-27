@@ -1,3 +1,4 @@
+var color;
 // <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
 // <script>
 //   // Initialize Firebase
@@ -14,9 +15,10 @@ var pointsData = firebase.database().ref();
 var points = [];
 
 function setup() {
-    var canvas = createCanvas(800, 800);
+    var canvas = createCanvas(windowWidth, windowHeight);
     background(0);
     fill(255);
+    
     pointsData.on("child_added", function (point) {
         points.push(point.val());
     });
@@ -36,7 +38,7 @@ function draw() {
     background(0);
     for(var i = 0; i < points.length; i++){
         var point = points[i];
-        ellipse(point.x, point.y, 10, 10);
+        ellipse(point.x, point.y, 30, 10);
     }
 }
 function drawPoint() {
@@ -58,5 +60,7 @@ function clearDrawing() {
     // pointsData.on("child_removed", function () {
     //     points = [];
     //  });
-
 }
+
+
+
