@@ -19,18 +19,24 @@ function setup() {
     fill(255);
     pointsData.on("child_added", function (point) {
         points.push(point.val());
-    })
+    });
+     pointsData.on("child_removed", function () {
+        points = [];
+     });
     canvas.mousePressed(drawPoint);
     canvas.mouseMoved(function () {
         if(mouseIsPressed) {
             drawPoint();
         }
+   
         })
+        
 }
 function draw() {
+    background(0);
     for(var i = 0; i < points.length; i++){
         var point = points[i];
-        ellipse(point.x, point.y, 5, 5);
+        ellipse(point.x, point.y, 10, 10);
     }
 }
 function drawPoint() {
@@ -46,11 +52,11 @@ function saveDrawing() {
 $("#clearDrawing").on("click", clearDrawing);
 
 function clearDrawing() {
-    console.log("Hello");
+    // console.log(points.length);
     pointsData.remove();
-    // points = [];
-    pointsData.on("child_removed", function () {
-        points = [];
-     });
+     points = [];
+    // pointsData.on("child_removed", function () {
+    //     points = [];
+    //  });
 
 }
