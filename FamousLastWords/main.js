@@ -10,6 +10,9 @@ var quotes = [
     "Don't worry! It's not loaded. -Terry Kath (Rock musician, playing russian roulette)",
     "Waiting are they? Well let'em wait! -General Mad Anthony Wayne (When told by his doctors the angels were waiting for him)",
     "I know you are here to kill me. Shoot, coward, you are only going to kill a man. -Che Guevara (Facing his assassin)",
+    "I should never have switched from Scotch to martinis. -Humphrey Bogart",
+    "I finally get to see Marilyn. -Joe DiMaggio",
+    
     ];
     
     var i = 0;
