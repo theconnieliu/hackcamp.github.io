@@ -1,0 +1,91 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+}
+
+
+div {
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    background-color: LightCoral;
+    -webkit-animation-name: thoughts;
+    -webkit-animation-duration: 20s;
+    animation-name: thoughts;
+    animation-duration: 20s;
+    animation-iteration-count: infinite;
+}
+
+
+@-webkit-keyframes thoughts {
+    0% {
+        background-color: LightCoral;
+    }
+    10% {
+        background-color: LightSalmon;
+    }
+    20% {
+        background-color: yellow;
+    }
+    30% {
+        background-color: GreenYellow;
+    }
+    40% {
+        background-color: LightGreen;
+    }
+    50% {
+        background-color: MediumTurquoise;
+    }
+    60% {
+        background-color: SkyBlue;
+    }
+    70% {
+        background-color: Plum;
+    }
+    80% {
+        background-color: Violet;
+    }
+    90% {
+        background-color: Fuschia;
+    }
+    100% {
+        background-color: LightCoral;
+    }
+}
+
+@keyframes thoughts {
+    0% {
+        background-color: LightCoral;
+    }
+    10% {
+        background-color: LightSalmon;
+    }
+    20% {
+        background-color: Yellow;
+    }
+    30% {
+        background-color: GreenYellow;
+    }
+    40% {
+        background-color: LightGreen;
+    }
+    50% {
+        background-color: MediumTurquoise;
+    }
+    60% {
+        background-color: SkyBlue;
+    }
+    70% {
+        background-color: Plum;
+    }
+    80% {
+        background-color: Violet;
+    }
+    90% {
+        background-color: Fuschia;
+    }
+    100% {
+        background-color: LightCoral;
+    }
+}
