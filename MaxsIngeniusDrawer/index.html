@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Platformer Game</title>
+ </head>
+ <body>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.23/p5.min.js"></script>
+   <script type="text/javascript" src="https://cdn.rawgit.com/molleindustria/p5.play/master/lib/p5.play.js"></script>
+   <script>
+     var lastPressed = false;
+     var currentBox = [];
+     var boxData = [];
+     function createBox(data){
+       var w = data[2] - data[0]
+       var h = data[3] - data[1]
+       var x = data[0] + w / 2
+       var y = data[1] + h / 2
+       createSprite(x,y,w,h)
+         boxData.push({
+             x:x,
+             y:y,
+             h:h,
+             w:w
+         })
+         currentBox = []
+     }
+    function setup() {
+        createCanvas(700, 300)
+    }
+    function giveMeData(){
+    console.log(JSON.stringify(boxData))}
+     function draw() {
+     background(0)
+     if (lastPressed && !mouseIsPressed) {
+       currentBox.push(mouseX, mouseY)
+       createBox(currentBox)
+     }
+     if (!lastPressed && mouseIsPressed) {
+       currentBox.push(mouseX, mouseY)
+     }
+     if (lastPressed && mouseIsPressed) {
+       var x = currentBox[0]
+       var y = currentBox[1]
+         fill('white')
+       ellipse(x,y, 10, 10)
+     }
+     drawSprites()
+     lastPressed = mouseIsPressed
+     }
+    </script>
+    </body>
+    </html>
